@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f7f7f7;
+          color: #333;
+          margin: 20px;
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: #3498db;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 15px;
+          text-align: center;
+          
+          color: #3498db;
+          
+        }
+        p {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>{{ mytask.agnname }} - The tasks performed in this assignment shown in brief </h2>
+<h3>For detailed solutions and code, please refer to the link at the end of this page. </h3>  
+<p>Question 1: Extract the following datasets : California housing price.
+    Perform Isolation forest and KNN to detect the outliers. Make a dot plot for all
+    outliers and inliers in this case by these two methods. State the difference you observe
+    in implementation of Multiple linear regression and these methods. Make a bar diagram
+    of the isolation scores.</p>
+<p> Partial Ans: </p>
+    {% load static %} <img src="{% static "dj_app/media/l.png" %}" alt="home" />
+    {% load static %} <img src="{% static "dj_app/media/m.png" %}" alt="home" />
+    {% load static %} <img src="{% static "dj_app/media/n.png" %}" alt="home" />
+
+
+<br>
+<p>Question 2: Download the following datasets from UCI machine learning repository : Adult, Congressional Voting Records. Use missingno to make a heatmap, bar diagram, matrix plot of observations and dendograms of arbitrary five dataset downloaded
+    from . Interpret all graphical representation.</p>
+<p> Partial Ans: </p>
+
+<p>For Adult Dataframe::</p>
+<p class="t">Heatmap</p>
+{% load static %} <img src="{% static "dj_app/media/o.png" %}" alt="home" />
+<p class="t">Bar Graph</p>
+{% load static %} <img src="{% static "dj_app/media/p.png" %}" alt="home" />
+<p class="t">Matrix</p>
+{% load static %} <img src="{% static "dj_app/media/q.png" %}" alt="home" />
+<p class="t">Dendogram</p>
+{% load static %} <img src="{% static "dj_app/media/r.png" %}" alt="home" />
+
+<p>For Voting Records Dataframe::</p>
+<p class="t">Heatmap</p>
+{% load static %} <img src="{% static "dj_app/media/s.png" %}" alt="home" />
+<p class="t">Bar Graph</p>
+{% load static %} <img src="{% static "dj_app/media/t.png" %}" alt="home" />
+<p class="t">Matrix</p>
+{% load static %} <img src="{% static "dj_app/media/u.png" %}" alt="home" />
+<p class="t">Dendogram</p>
+{% load static %} <img src="{% static "dj_app/media/v.png" %}" alt="home" />
+<br>
+
+
+<p class="t">Link to <a href="https://github.com/pragatimpatil/DVL-Assignments/blob/main/dv_agn3_234161019.ipynb">Detailed Solutions</a></p>
+<br>
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

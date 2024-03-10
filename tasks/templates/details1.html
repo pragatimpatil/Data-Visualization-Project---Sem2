@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f7f7f7;
+          color: #333;
+          margin: 20px;
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: #3498db;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 15px;
+          text-align: center;
+          
+          color: #3498db;
+          
+        }
+        p {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>{{ mytask.agnname }} - The tasks performed in this assignment shown in brief </h2>
+<h3>For detailed solutions and code, please refer to the link at the end of this page. </h3>  
+<p>Question 1: Draw 100 random number from standard normal distribution. Use matplotlib, seaborn
+    and plotly to make a histogram in python.</p>
+<p> Partial Ans: </p>
+    {% load static %} <img src="{% static "dj_app/media/a.png" %}" alt="home" />
+    {% load static %} <img src="{% static "dj_app/media/b.png" %}" alt="home" />
+    {% load static %} <img src="{% static "dj_app/media/c.png" %}" alt="home" />
+
+
+<br>
+<p>Question 2: Draw a 1000 random number from mixture of following two normals : 90% N(0, 1)
+  and 10% N(0, 25). Draw a histogram in python.</p>
+<p> Partial Ans: </p>
+{% load static %} <img src="{% static "dj_app/media/d.png" %}" alt="home" />
+
+<br>
+<p>Question 3: Make a quantile quantile plot of sample empirical distribution based on above two
+  samples with respect to theoretical quantile of Cauchy(0, 1) and theoretical quantile
+  of N(0, 1) separately in four graphs. Interpret your results.
+  </p>
+<p> Partial Ans: </p>
+{% load static %} <img src="{% static "dj_app/media/e.png" %}" alt="home" align="center"/>
+
+<br>
+<p>Question 4: Make a box plot of the second sample. Identify all (if at all) outliers available in the
+  sample. State the other informations, the plot is speaking to you. </p>
+<p> Partial Ans: </p>
+{% load static %} <img src="{% static "dj_app/media/f.png" %}" alt="home" />
+
+<p class="t">Link to <a href="https://github.com/pragatimpatil/DVL-Assignments/blob/main/DV_agn1.ipynb">Detailed Solutions</a></p>
+<br>
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

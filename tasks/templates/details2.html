@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f7f7f7;
+          color: #333;
+          margin: 20px;
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: #3498db;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 15px;
+          text-align: center;
+          
+          color: #3498db;
+          
+        }
+        p {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>{{ mytask.agnname }} - The tasks performed in this assignment shown in brief </h2>
+<h3>For detailed solutions and codes, please refer to the link at the end of this page. </h3>  
+<p>Question 1: Draw 100 random number from each of the following three distributions : Standard
+    Normal distribution, Double Exponential(0, 1) and Mixture of 90% N(0, 1) and 10%
+    N(0, 25). Make Box plot of each of these distributions and comment on them.</p>
+<p> Partial Ans: </p>
+    {% load static %} <img src="{% static "dj_app/media/g.png" %}" alt="home" />
+
+
+
+<br>
+<p>Question 2: Draw box plot for each of the features in Iris data available in Scikit learn. Please
+    comment on the variance and presence of outliers in each cases.</p>
+<p> Partial Ans: </p>
+{% load static %} <img src="{% static "dj_app/media/h.png" %}" alt="home" />
+
+<br>
+<p>Question 3: Extract and write the dataset ”longley” from R data sets into a CSV or .txt file. This
+    is a data frame with 7 economical variables, observed yearly from 1947 to 1962 (n=16).
+    Make a visualization for the leverage points, influencial points, outliers (if any) and
+    the best fitted model.
+  </p>
+<p> Partial Ans: </p>
+{% load static %} <img src="{% static "dj_app/media/i.png" %}" alt="home" align="center"/>
+
+<br>
+<p>Question 4: Fit a linear regression for California housing price. Make
+    scatterplot of actual observation and predicted observations. Comment on the plot.
+    Find out the difficulty in finding outlier for the datasets (Please make a graphical
+    representation if you feel it is tractable based on your current knowledge). Visualise
+    both the measures through Bar diagram and scatter plot. </p>
+<p> Partial Ans: </p>
+{% load static %} <img src="{% static "dj_app/media/j.png" %}" alt="home" />
+{% load static %} <img src="{% static "dj_app/media/k.png" %}" alt="home" />
+
+<p class="t">Link to <a href="https://github.com/pragatimpatil/DVL-Assignments/blob/main/Pragati_234161019_agn2.ipynb">Detailed Solutions</a></p>
+<br>
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

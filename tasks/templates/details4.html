@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f7f7f7;
+          color: #333;
+          margin: 20px;
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: #3498db;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 15px;
+          text-align: center;
+          
+          color: #3498db;
+          
+        }
+        p {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>{{ mytask.agnname }} - The tasks performed in this assignment shown in brief </h2>
+<h3>For detailed solutions and code, please refer to the link at the end of this page. </h3>  
+<p>Question 1: Explore the datasets from the following sources :<br>
+    1. airfoil : https://archive.ics.uci.edu/dataset/291/airfoil+self+noise<br>
+    2. Breast Cancer : https://archive.ics.uci.edu/dataset/16/breast+cancer+wisconsin+
+    prognostic<br>
+    3. concrete slump : https://archive.ics.uci.edu/dataset/182/concrete+slump+test<br>
+    4. energy : https://archive.ics.uci.edu/dataset/242/energy+efficiency<br>
+    5. servo : https://archive.ics.uci.edu/dataset/87/servo<br>
+    6. yacht : https://archive.ics.uci.edu/dataset/243/yacht+hydrodynamics<br>
+    7. autompg : https://archive.ics.uci.edu/dataset/9/auto+mpg<br>
+    8. forest : https://archive.ics.uci.edu/dataset/162/forest+fires<br>
+    9. skillcraft : https://archive.ics.uci.edu/dataset/272/skillcraft1+master+table+
+    dataset<br>
+    10. california housing dataset : https://scikit-learn.org/stable/modules/generated/
+    sklearn.datasets.fetch_california_housing.html<br>
+    • Apply K-means and GMM for all datasets. Find suitable choice of K for each datasets.
+    Plot the clusters for each datasets. Comment/Interpret suitably if you find anything
+    on domain specific attributes.</p>
+<p> Partial Ans: </p>
+<p class="t">Airfoil Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a1.png" %}" alt="home" />
+<p class="t">Breast Cancer</p>   
+    {% load static %} <img src="{% static "dj_app/media/a2.png" %}" alt="home" />
+<p class="t">Slump Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a3.png" %}" alt="home" />
+<p class="t">Energy Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a4.png" %}" alt="home" />
+<p class="t">Servo Test Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a5.png" %}" alt="home" />
+<p class="t">Yacht Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a6.png" %}" alt="home" />
+<p class="t">AutoMPG Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a7.png" %}" alt="home" />
+<p class="t">Forest Test Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a8.png" %}" alt="home" />    
+<p class="t">Skillcraft Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a9.png" %}" alt="home" />    
+<p class="t">California Housing Dataset</p>
+    {% load static %} <img src="{% static "dj_app/media/a10.png" %}" alt="home" />    
+<br>
+
+<p class="t">Link to <a href="https://github.com/pragatimpatil/DVL-Assignments/blob/main/DV_assign_4.ipynb">Detailed Solutions</a></p>
+<br>
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>
