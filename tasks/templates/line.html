@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>LINE GRAPH</h2>
+<h3>Introduction </h3>  
+<p>A line Graph is nothing but a way to represent two or more variables in the form of line or curves to visualize the concept and helps to understand it in a better form. It displays the data that changes continuously concerning time. 
+    In a line graph data points are connected with an edge and data points are represented either with points.</p>
+<p>A graph or line chart is a graphical representation of the data that displays the relationship between two or more variables concerning time. 
+    It is made by connecting data points with straight-line segments.</p>
+<br>
+<h3>Parts of Line Graph </h3>  
+<p>Parts of the line graph include the following:
+    <br><br>
+    Title: It is nothing but the title of the graph drawn.<br>
+Axes: The line graph contains two axes i.e. X-axis and Y-axis.<br>
+Labels: The name given to the x-axis and y-axis.<br>
+Line: It is the line segment that is used to connect two or more data points.<br>
+Point: It is nothing but a point given at each segment.<br>
+</p>
+{% load static %} <img src="{% static "dj_app/media/line1.png" %}" alt="home" align="center" />
+<br>
+<h3>How to make a line graph?</h3>
+<p>To make a line graph we need to use the following steps:
+<br><br>
+    Determine the variables: The first and foremost step to creating a line graph is to identify the variables you want to plot on the X-axis and Y-axis.<br>
+    Choose appropriate scales: Based on your data, determine the appropriate scale.<br>
+    Plot the points: Plot the individual data points on the graph according to the given data.<br>
+    Connect the points: After plotting the points, you have to connect those points with a line.<br>
+    Label the axes: Add labels to the X-axis and Y-axis. You can also include the unit of measurement.<br>
+    Add Title: After completing the graph you should provide a suitable title.</p>
+
+<h3>How to Read a line graph?</h3>
+<p>To read a line graph you need to follow the below given steps:<br><br>
+
+    Understand the axes: First, you need to understand the X-axis and Y-axis of the graph.<br>
+    Estimate the scale: Look at the values marked along each axis to determine the scale.<br>
+    Estimate the values of data points: Look at the data points on the graph to estimate the values on the graph.<br>
+    Analyze the pattern: Identify the pattern and analyze it.<br>
+    Conclude: Based on the above step find conclusions.</p>
+
+    <h3>Example of Line Graph</h3>
+    <p>Let us understand the concept with the help of an example.
+<br>
+        Example: Draw a line graph for the given data</p>
+{% load static %} <img src="{% static "dj_app/media/line2.png" %}" alt="home" />
+{% load static %} <img src="{% static "dj_app/media/line3.png" %}" alt="home" />
+<h3>Types of Line Graph</h3>
+<p>Let us discuss the types of line graphs:
+<br><br>
+    Simple Line Graph<br>
+    Multiple Line Graph<br>
+    Compound Line Graph<br><br>
+    SIMPLE LINE GRAPH<br>
+    It is the most common type of line graph in which a single line 
+    represents the relationship between two variables over time. 
+    The above diagram is an example of a basic line graph.
+<br><br>
+MULTIPLE LINE GRAPH<br>
+It is the type of line graph in which we can represent two or more lines in a single graph and they can either belong to the same categories or different which makes it easy to make comparisons between them. Multiple line graphs also include a double line graph or we can say that a double line graph is also a multiple line graph.
+<br>
+An example of multiple graphs is shown below:
+{% load static %} <img src="{% static "dj_app/media/line4.png" %}" alt="home" />
+<br><br>
+COMPOUND LINE GRAPH<br>
+It is a type of line graph in which multiple lines or data are combined into a single graph showing different categories or variables. The main aim of a compound line graph is to represent or display the relationship between different variables on a single graph.
+<br>
+A Compound Line graph example is shown below:<br>
+{% load static %} <img src="{% static "dj_app/media/line5.png" %}" alt="home" />
+<br></p>
+<h3>Uses of Line Graph</h3><p>
+There are various use cases of line graphs, some of these use cases are as follows:
+<br><br>
+It is used to visualize the data, which makes raw data understandable easily.<br>
+It is used to compare the data for different categories.<br>
+It becomes easy to make predictions using a line graph.<br><br></p>
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

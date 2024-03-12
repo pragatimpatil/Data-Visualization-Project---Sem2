@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Visualization Hub</title>
+        <style>
+            body {
+                font-family: 'Calibri', sans-serif;
+                background-color: lightcyan;
+                margin: 0;
+                padding: 0;
+            }
+    
+            header {
+                font-family: 'Calibri', sans-serif;
+                background-color: lightseagreen;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+    
+            section {
+                margin: 20px;
+                text-align: center;
+            }
+    
+            .assignment-card {
+                display: inline-block;
+                width: 300px;
+                height: 250px;
+                margin: 20px;
+                padding: 20px;
+                background-color: lightyellow;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
+                transition: transform 0.3s;
+            }
+            .assignment-card1 {
+                display: inline-block;
+                width: 600px;
+                height: 40px;
+                margin: 20px;
+                padding: 20px;
+                background-color: lightyellow;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
+                transition: transform 0.3s;
+            }
+            .assignment-card1:hover {
+                transform: scale(1.15);
+            }
+            .assignment-card:hover {
+                transform: scale(1.15);
+            }
+            p {
+                font-weight: bold;
+                font-family: 'Calibri', sans-serif;
+                line-height: 1.5;
+                margin-bottom: 10px;
+                text-align: center
+              }
+              p.r{
+                font-size:20px
+              }
+              p.t {
+                font-size: 20px;
+                font-style: italic;
+                font-family: 'Calibri', sans-serif;
+                line-height: 1.5;
+                margin-bottom: 10px;
+                text-align: center;
+                color: navy
+              }
+              p.t1 {
+                font-size:18px;
+                font-style: italic;
+                font-family: 'Calibri', sans-serif;
+                line-height: 1.5;
+                margin-bottom: 10px;
+                text-align: center;
+                color: green
+              }
+            footer {
+                background-color: #3498db;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
+    </head>
+<body>
+    <header>
+        <h1>Data Visualization Hub</h1>
+    </header>
+    <p class="r">In today’s world, a lot of data is being generated on a daily basis. And sometimes to analyze this data 
+        for certain trends, patterns may become difficult 
+        if the data is in its raw format. To overcome this data visualization comes into play. Data visualization
+         provides a good, organized pictorial representation of the data which makes it easier to understand, observe, analyze. Data visualization is a powerful way to comprehend complex information and gain insights from data. 
+        Through graphical representation, we can uncover patterns, trends, and correlations that might be challenging to discern in raw data. 
+        <br></p><p class="t">To embark on your visual journey, please select an option from the menu below. Each choice offers a unique perspective, 
+        transforming data into compelling visual narratives that enhance your understanding and decision-making process. 
+    Explore the diverse range of visualization options, and let the data speak to you in meaningful and insightful ways.</p>
+    <section>
+        <div class="assignment-card1">
+        <form id="visualizationForm" method="post" >
+            {% csrf_token %}
+            <label for="visualization_option">Select a Visualization Plot you want to explore further:</label>
+            <select id="visualization_option" name="visualization_option">
+                <option value="" selected disabled>Data Visualization Plots</option>
+                {% for option in myvoptions %}
+                    <option value="{{ option.id }}">{{ option.plotname }}</option>
+                    
+                {% endfor %}
+            </select>
+            <button type="button" onclick="selectVisualization()">EXPLORE!</button>
+        </form>
+        <script>
+            function selectVisualization() {
+                var selectedOption = document.getElementById("visualization_option").value;
+                if (selectedOption == 10) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "dot/" + selectedOption ;
+                }
+                if (selectedOption == 9) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "line/" + selectedOption ;
+                }
+                if (selectedOption == 8) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "heatmap/" + selectedOption ;
+                }
+                if (selectedOption == 7) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "pie/" + selectedOption ;
+                }
+                if (selectedOption == 6) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "scatter/" + selectedOption ;
+                }
+                if (selectedOption == 5) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "dendogram/" + selectedOption ;
+                }
+                if (selectedOption == 4) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "histogram/" + selectedOption ;
+                }
+                if (selectedOption == 1) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "boxplot/" + selectedOption ;
+                }
+                if (selectedOption == 2) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "qq/" + selectedOption ;
+                }
+                if (selectedOption == 3) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "bar/" + selectedOption ;
+                }
+            }
+        </script>
+    </div>
+    </section>
+    <p class="t">Feel free to delve into and navigate the intricacies of the implemented concepts, as this expansive platform offers you an immersive and extensive exploration of the multifaceted landscape encapsulated within its framework. Uncover the nuances, dissect the intricacies, and unravel the depth of knowledge embedded in
+         the implemented concepts, providing you with an enriching and expansive journey into the realms of understanding and application.</p>
+    <p class="t">Again, several concepts learned and implemented in the assigned tasks can be explored below.</p>
+    <section>
+        <div class="assignment-card1">
+        <form id="conceptForm" method="post" >
+            {% csrf_token %}
+            <label for="concept">Select a Machine Learning concept you want to learn:</label>
+            <select id="concept" name="concept">
+                <option value="" selected disabled>Machine Learning Concepts</option>
+                {% for m1 in mymodules %}
+                    <option value="{{ m1.id }}">{{ m1.name }}</option>
+                    
+                {% endfor %}
+            </select>
+            <button type="button" onclick="selectmodule()">EXPLORE!</button>
+        </form>
+        <script>
+            function selectmodule() {
+                var selectedOption = document.getElementById("concept").value;
+                
+                if (selectedOption == 5) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "lr/" + selectedOption ;
+                }
+                if (selectedOption == 4) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "ift/" + selectedOption ;
+                }
+                if (selectedOption == 1) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "knn/" + selectedOption ;
+                }
+                if (selectedOption == 2) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "kms/" + selectedOption ;
+                }
+                if (selectedOption == 3) {
+                    // Redirect to the details page for the selected visualization
+                    window.location.href = "gmm/" + selectedOption ;
+                }
+            }
+        </script>
+    </div>
+    </section>
+
+
+    <p class="t1">You can also explore the data visualization assignments/tasks that were performed on various datasets.
+        Dive into the details of each assignment and discover the art and science behind transforming complex data into
+         compelling visual narratives.
+         Your exploration awaits – delve into the wealth of knowledge and experience encapsulated in our data visualization
+          tasks.</p>
+    <section>
+        <div class="assignment-card">
+            <h2>Assignments done till date</h2>
+            <p>Below mentioned are the links to Data Visualization tasks performed:</p>
+            <ul>
+                {% for x in mytasks %}
+                  {% if x.agnname == "Assignment 1" %}
+                    <li><a href="details1/{{ x.id }}">{{ x.agnname }} </a></li>
+                  {% endif %}
+                  {% if x.agnname == "Assignment 2" %}
+                    <li><a href="details2/{{ x.id }}">{{ x.agnname }} </a></li>
+                  {% endif %}
+                  {% if x.agnname == "Assignment 3" %}
+                    <li><a href="details3/{{ x.id }}">{{ x.agnname }} </a></li>
+                  {% endif %}
+                  {% if x.agnname == "Assignment 4" %}
+                    <li><a href="details4/{{ x.id }}">{{ x.agnname }} </a></li>
+                  {% endif %}
+                  
+                {% endfor %}
+              </ul>
+            
+        </div>
+    </section>
+
+    
+
+</body>
+</html>

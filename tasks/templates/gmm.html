@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>GAUSSIAN MIXTURE MODEL</h2>
+<h3>Introduction </h3>  
+<p>we can call GMM probabilistic KMeans because the starting point and training process of the KMeans and GMM are the same. 
+    However, KMeans uses a distance-based approach, and GMM uses a probabilistic approach.
+     There is one primary assumption in GMM: the dataset consists of multiple Gaussians, in other words, a mixture of the gaussian.
+</p>
+{% load static %} <img src="{% static "dj_app/media/gmm1.png" %}" alt="home" align="center" />
+<p>The above kind of distribution is often called multi-model distribution. Each peak represents the different gaussian distribution or the cluster in our dataset. But the question is,</p>
+<h3>how do we estimate these distributions?</h3>
+
+<p>Before answering this question, let's create some gaussian distribution first. Please note
+     here we're generating multivariate normal distribution; it's a higher dimensional extension of the univariate normal distribution.</p>
+<p>Let's define the mean and covariance of our data points. Using mean and covariance, we can generate the distribution as follows.</p>
+{% load static %} <img src="{% static "dj_app/media/gmm2.png" %}" alt="home" align="center" />
+<p>Let's plot the data<p>
+    {% load static %} <img src="{% static "dj_app/media/gmm3.png" %}" alt="home" align="center" />  
+    {% load static %} <img src="{% static "dj_app/media/gmm4.png" %}" alt="home" align="center" /> 
+<p>As you can see here, we generated random 
+    gaussian distribution using mean and covariance matrices. What about reversing this process? That's what exactly GMM is doing. But how?</p>
+<p>Well, It happens according to the below steps,
+<br><br>
+    1. Decide the number of clusters (to decide this, we can use domain knowledge or other methods such as BIC/AIC) for the given dataset. Assume that we have 1000 data points, and we set the number of groups as 2.
+    <br>2. Initiate mean, covariance, and weight parameter per cluster. (we will explore more about this in a later section)
+    <br>3. Use the Expectation Maximization algorithm to do the following,
+    <br>4. Expectation Step (E step): Calculate the probability of each data point belonging to each distribution, then evaluate the likelihood function using the current estimate for the parameters
+    <br>5. Maximization step (M step): Update the previous mean, covariance, and weight parameters to maximize the expected likelihood found in the E step
+    <br>6. Repeat these steps until the model converges.</p>
+
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

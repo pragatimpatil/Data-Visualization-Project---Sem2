@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>DOT PLOT </h2>
+<h3>Introduction </h3>  
+<p>Dotplots are a popular visualization method in bioinformatics for comparing two sequences and locating commonality. Plotting one sequence down the x-axis and the other along the y-axis, then placing a dot at each location where the two sequences coincide, is the core notion behind this technique. 
+    The resulting plot gives you a simple, quick approach to spot places where the sequences are similar.</p>
+
+<br>
+<h3>Generating a Dot plot Matrix </h3>  
+<p>To create a Dot plot matrix, two sequences are compared by scanning them across a grid and marking
+     the locations where they match. The outcome is a matrix, 
+    where each cell denotes a location in one sequence and a different place in a different sequence.</p>
+{% load static %} <img src="{% static "dj_app/media/dot1.png" %}" alt="home" align="center" />
+
+<br>
+<p>The cell is indicated with a dot or another symbol if the two places match.
+  </p>
+<br>
+<h3>Visualizing Dot plots with Matplotlib in Python</h3>
+{% load static %} <img src="{% static "dj_app/media/dot2.png" %}" alt="home" align="center"/>
+{% load static %} <img src="{% static "dj_app/media/dot3.png" %}" alt="home" align="center"/>
+
+<p>The code snippet creates a dot plot matrix display using the Matplotlib library through the Python 
+    method dotplot2Graphics. Four arguments are passed to the function:
+<br><br>
+    dp: a dot plot matrix<br>
+    labelA: label for the y-axis<br>
+    labelB: label for the x-axis<br>
+    heading: the title for the plot<br>
+    filename: the name of the file to save the plot<br><br>
+    The scatter() function from Matplotlib is used by the function to produce a new figure and plot the dots on the scatter plot. 
+The indices of the non-zero elements in the dot plot matrix define the placements of the dots.
+<br>
+The set_xlabel(), set_ylabel(), and set_title() functions are used to set the x- and y-axis labels as well as the title. The set_xticks(), set_yticks(), set_xticklabels(), and set_yticklabels() routines are used to set the tick positions and labels. 
+The plot is then shown on the screen and saved to the designated file using the savefig() and show() functions, respectively.
+<br>
+Dot plot matrices produced by the dot plot algorithm can be visualized using this function for a variety of tasks including sequence alignment, genome comparison, and motif discovery. Dot plot visualization is made versatile and programmable with the usage of Matplotlib.</p>
+<p>seqA="peter piper picked a peck of pickled peppers"<br>
+    seqB="a peck of pickled peppers peter piper picked"<br>
+    dp = dotplot(seqA,seqB,5,4)<br>
+    dotplot2Graphics(dp, 'Sequence A', 'Sequence B', "Peter Piper’s first dotplot", "mydotplot.png")</p>
+
+    <p>This code generates a dot plot graphic using the dotplot2Graphics function in Python's Matplotlib library. 
+        The dotplot2Graphics function takes as input a dot plot matrix dp and labels for the two sequences being compared, 
+        labelA and labelB, as well as a title for the plot and the name of the file to save the plot as.
+
+        In this particular example, the dot plot matrix dp is generated from two DNA sequences, 
+        seqA and seqB, using the dotplot function. The function then calls dotplot2Graphics to create a dot plot visualization of the matrix. The x-axis represents the positions in sequence B, while the y-axis represents positions in sequence A. 
+        The dots represent matches between the two sequences.</p>
+{% load static %} <img src="{% static "dj_app/media/dot4.png" %}" alt="home" />
+<p>The resulting plot is saved as a PNG image file named “mydotplot.png”. 
+    The title of the plot is “Peter Piper’s first dotplot”, 
+    and the labels for the two sequences are “Sequence A” and “Sequence B”.</p>
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

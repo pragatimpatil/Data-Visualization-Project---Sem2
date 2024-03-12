@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>DENDOGRAM</h2>
+<h3>What is Hierarchical Clustering? </h3>  
+<p>Hierarchical clustering is where you build a cluster tree (a dendrogram) to represent data, where each group
+     (or “node”) links to two or more successor
+     groups. The groups are nested and organized as a tree, which ideally ends up as a meaningful classification scheme.
+</p>
+<p>Each node in the cluster tree contains a group of similar data; Nodes group on the graph next to other, similar nodes. 
+    Clusters at one level join with clusters in the next level up, using a degree of similarity; The process carries on until all nodes are in the tree, which gives a visual snapshot of the
+     data contained in the whole set. The total number of clusters is not predetermined before you start the tree creation.</p>
+
+<h3>What is Dendogram?</h3>
+{% load static %} <img src="{% static "dj_app/media/dendo1.png" %}" alt="home" align="center" />
+
+<p>
+    Dendrogram is a type of tree diagram showing hierarchical clustering — relationships between similar sets of data. They are 
+    frequently used in biology to show clustering between genes or samples, but they can represent any type of grouped data.</p>
+
+<h3>Parts of Dendogram</h3><br>
+{% load static %} <img src="{% static "dj_app/media/dendo2.png" %}" alt="home" align="center" />
+<p>A dendrogram can be a column graph (as in the image below) or a row graph. Some dendograms are circular or 
+    have a fluid-shape, but software
+     will usually produce a row or column graph. No matter what the shape, the basic graph comprises of the same parts:</p>
+<p>The clade is the branch. Usually labeled with Greek letters from left to right (e.g. α β, δ…).<br>
+    Each clade has one or more leaves. The leaves in the above image are:<br><br>
+    Single (simplicifolius): F<br>
+    Double (bifolius): D E<br>
+    Triple (trifolious): A B C</p>
+<p>A clade can theoretically have an 
+    infinite amount of leaves. However, the more leaves you have, the harder the graph
+     will be to read with the naked eye.</p>
+
+<h3>How to read a Dendogram?</h3><br>
+<p>The clades are arranged according to how similar (or dissimilar) they are. Clades that are close to the same height are similar to each other; clades with different heights are dissimilar — the greater the difference in height, the more dissimilarity (you
+     can measure similarity in many different ways; One of the most popular measures is Pearson’s Correlation 
+     Coefficient).</p>
+{% load static %} <img src="{% static "dj_app/media/dendo3.png" %}" alt="home" align="center" />   
+<p>Leaves A, B, and C are more similar to each other than they are to leaves D, E, or F.<br>
+    Leaves D and E are more similar to each other than they are to leaves A, B, C, or F.<br>
+    Leaf F is substantially different from all of the other leaves.</p>
+<p>Note that on the above graph, the same clave, β joins leaves A, B, C, D,and E. 
+    That means that the two groups (A,B,C & D,E) are more similar to each other than they are to F.</p>
+
+<h3>Hierarchical Clustering Algorithms</h3>
+<br>
+<p>All hierarchical
+     clustering algorithms are monotonic — they either increase or decrease. The algorithms 
+     can be bottom up or top down:</p>
+<h3>1. Bottom up (Hierarchical Agglomerative Clustering, HAC):</h3>
+<p>1. Treat each document as a single cluster at the beginning of the algorithm.<br>
+    2. Merged(agglomerate) two items at a time into a new cluster. How the pairs merge involves calculating a dissimilarity between each merged pair and the other samples. There are many ways to do this. Popular options:<br>
+    a. Complete linkage: similarity of the farthest pair. One drawback is that outliers can cause merging of close groups later than is optimal.<br>
+    b. Single-linkage: similarity of the closest pair. This can cause premature merging of groups with close pairs, even if those groups are quite dissimilar overall.<br>
+    c. Group average: similarity between groups.<br>
+    d. Centroid similarity: each iteration merges the clusters with the most similar central point.<br>
+    3. The pairing process continues until all items merge into a single cluster.</p>
+<p>HAC’s account for the vast majority of hierarchical clustering algorithms. However, one downside is that they 
+    have significant computational and storage requirements — especially for big data. These complex algorithms are about quadruple the size of the K-means algorithm. 
+    Also, merging can’t be reversed, which can create a problem if you have noisy, high-dimensional data.</p>
+
+<h3>2. Top down (Divisive Clustering):</h3>
+<p>Data starts as one combined cluster.<br>
+    The cluster splits into two distinct parts, according to some degree of similarity.<br>
+    Clusters split into two again and again until the clusters only contain a single data point.</p>
+<p>Divisive clustering is very rarely used.</p>
+<h3>Downsides</h3>
+<p>Hierarchical clustering can easily lead to dendrograms that are just plain wrong. Unless you known your data inside out (pretty much impossible for big data sets), this is largely unavoidable. One of the main reasons for this is that the clustering algorithm will work even on the most unsuitable data. Another reason is that the decision you make for creating clusters (Step 2 above) can lead to significantly different dendrograms. The choice can be 
+    tough to make in advance, and you may not be able to tell which of the four end results are the most suitable.</p>
+
+<h3>Real Life Example</h3>
+<p>The fact that the hierarchical clustering algorithm will work even if presented with seemingly unrelated data can be a positive as well as a negative. For example, a 2003 research team used hierarchical clustering to “support the idea that many…breast tumor subtypes represent biologically distinct
+     disease entities.” To the human eye, the original data looked like noise, but the algorithm was able to find patterns.</p>
+
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

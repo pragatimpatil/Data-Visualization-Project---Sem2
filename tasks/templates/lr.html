@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>LINEAR REGRESSION</h2>
+<h3>Linear Regression in Machine Learning </h3>  
+<p>Linear regression is one of the easiest and most popular Machine Learning algorithms. It is a statistical method that is used for predictive analysis. Linear regression 
+    makes predictions for continuous/real or numeric variables such as sales, salary, age, product price, etc.
+</p>
+<p>Linear regression algorithm shows a linear relationship between a dependent (y) and one or more independent (y) variables, hence called as linear regression. Since linear regression shows the linear relationship, which 
+    means it finds how the value of the dependent variable is changing according to the value of the independent variable.</p>
+<p>The linear regression model provides 
+    a sloped straight line representing the relationship between the variables. Consider the below image:</p>
+{% load static %} <img src="{% static "dj_app/media/lr1.png" %}" alt="home" align="center" />
+<p>Mathematically, we can represent a linear regression as:</p>
+<p>y= a0+a1x+ ε</p>
+<p>Here,
+<br><br>
+    Y= Dependent Variable (Target Variable)<br>
+    X= Independent Variable (predictor Variable)<br>
+    a0= intercept of the line (Gives an additional degree of freedom)<br>
+    a1 = Linear regression coefficient (scale factor to each input value).<br>
+    ε = random error<br><br>
+    
+    The values for x and y variables are training datasets for Linear Regression model representation.</p>
+
+<h3>Types of Linear Regression</h3>
+<p>Linear regression can be further divided into two types of the algorithm:</p>
+<h3>Simple Linear Regression:</h3>
+<p>If a single independent variable is used to predict the value of a numerical dependent variable, then such a Linear Regression algorithm is called Simple Linear Regression.</p>
+<h3>Multiple Linear regression:</h3>
+<p>If more than one independent variable is used to predict the value of a numerical dependent variable, then such a Linear Regression algorithm is called Multiple Linear Regression.</p>
+    
+<h3>Linear Regression Line</h3>
+
+<p>A linear line showing the relationship between the dependent and independent variables is called a regression line. A regression line can show two types of relationship:
+<br><br>
+    1. Positive Linear Relationship:<br>
+    If the dependent variable increases on the Y-axis and independent variable increases on X-axis, then such a relationship is termed as a Positive linear relationship.
+    </p>
+    {% load static %} <img src="{% static "dj_app/media/lr2.png" %}" alt="home" align="center" />
+
+<p>2. Negative Linear Relationship:<br>
+    If the dependent variable decreases on the Y-axis and 
+    independent variable increases on the X-axis, then such a relationship is called a negative linear relationship.</p>
+
+{% load static %} <img src="{% static "dj_app/media/lr3.png" %}" alt="home" align="center" />
+<h3>Finding the best fit line:</h3>
+<p>When working with linear regression, our main goal is to find the best fit line that means the
+     error between predicted values and actual values should be minimized. The best fit line will have the least error.</p>
+ <p>The different values for weights or the coefficient of lines (a0, a1) gives a different line of regression, so we 
+    need to calculate the best values for a0 and a1 to find the best fit line, so to calculate this we use cost function.</p>    
+
+
+
+<h3>Cost function-</h3>
+
+<p>The different values for weights or coefficient of lines (a0, a1) gives the different line of regression, and the cost function is used to estimate the values of the coefficient for the best fit line.
+    <br>Cost function optimizes the regression coefficients or weights. It measures how a linear regression model is performing.
+    <br>We can use the cost function to find the accuracy of the mapping function, which maps the input variable to the output variable. This mapping function is also known as Hypothesis function.
+    <br><br>For Linear Regression, we use the Mean Squared Error (MSE) cost function, which is the average of squared error occurred between the predicted values and actual values. It can be written as:
+    
+    <br>For the above linear equation, MSE can be calculated as:</p>
+    {% load static %} <img src="{% static "dj_app/media/lr4.png" %}" alt="home" align="center" />
+<p>Residuals: The distance between the actual value and predicted values is called residual. If the observed points are far from the regression line, then the residual will be high, and so cost function will high. 
+    If the scatter points are close to the regression line, then the residual will be small and hence the cost function.</p>
+<h3>Gradient Descent</h3>
+<p>Gradient descent is used to minimize the MSE by calculating the gradient of the cost function.<br>
+    A regression model uses gradient descent to update the coefficients of the line by reducing the cost function.<br>
+    It is done by a random selection of values of coefficient and then iteratively update the values to reach the minimum cost function.</p>   
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

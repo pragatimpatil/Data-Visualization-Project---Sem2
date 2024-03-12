@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>SCATTER PLOT</h2>
+<h3>Introduction </h3>  
+<p>A scatter plot (aka scatter chart, scatter graph) uses dots to represent values for two different numeric variables. The position of each dot on the horizontal and vertical axis
+     indicates values for an individual data point. Scatter plots are used to observe relationships between variables.
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/scatter1.png" %}" alt="home" align="center" />
+
+<p>
+    The example scatter plot above shows the diameters and heights for a sample of fictional trees. Each dot 
+    represents a single tree; each point’s horizontal position indicates that tree’s diameter (in centimeters) 
+    and the vertical position indicates that tree’s height (in meters). From the plot, we can see a generally tight
+     positive correlation between a tree’s diameter and its height. We can also observe an outlier point, a tree that
+      has a much larger
+     diameter than the others. This tree appears fairly short for its girth, which might warrant further investigation.</p>
+
+<h3>When you should use a scatter plot</h3>
+<p>Scatter plots’ primary uses are to observe and show relationships between two numeric variables. The dots in a 
+    scatter plot not only report the values of individual data points, but also patterns when the data are taken as a whole.</p>
+<p>Identification of correlational relationships are common with scatter plots. In these cases, we want to know, if we were given a particular horizontal value, what a good prediction would be for the vertical value. You will often see the variable on the horizontal axis denoted an independent variable, and the variable on the vertical axis the dependent variable. Relationships
+     between variables can be described in many ways: positive or negative, strong or weak, linear or nonlinear.</p>
+
+{% load static %} <img src="{% static "dj_app/media/scatter2.png" %}" alt="home" align="center" />   
+<p>A scatter plot can also be useful for identifying other patterns in data. We can divide data points into groups based on how closely sets of points cluster together. Scatter plots can also show if there are any unexpected gaps in the data and if there are any outlier points. 
+    This can be useful if we want to segment the data into different parts, like in the development of user personas.</p>
+    {% load static %} <img src="{% static "dj_app/media/scatter3.png" %}" alt="home" align="center" />  
+    <br> 
+<h3>Example of data structure</h3>
+<br>
+{% load static %} <img src="{% static "dj_app/media/scatter4.png" %}" alt="home" />
+<br>
+<p>In order to create a scatter plot, we need to select two columns from a data table, one for each dimension 
+    of the plot. Each row of the table will become a single dot in the plot with position according to the column values.</p>
+
+<br>  
+
+<br>
+<h3>Common issues when using scatter plots</h3><br>
+<h3>1. Overplotting</h3>
+<p>
+    When we have lots of data points to plot, this can run into the issue of overplotting. Overplotting is the
+     case where data points overlap to a degree where we have difficulty seeing relationships between points 
+    and variables. It can be difficult to tell how densely-packed data points are when many of them are in a small area.</p>
+<p>There are a few common ways to alleviate this issue. One alternative is to sample only a subset of data points:
+     a random selection of points should still give the general idea of the patterns in the full data. We can also change 
+     the form of the dots, adding transparency to allow for overlaps to be visible, or reducing point size so that fewer 
+     overlaps occur. As a third option, 
+    we might even choose a different chart type like the heatmap, where color indicates the number of points in each bin.</p>    
+    {% load static %} <img src="{% static "dj_app/media/scatter5.png" %}" alt="home" />
+<br>
+<h3>2. Interpreting correlation as causation</h3>
+<p>This is not so much an issue with creating a scatter plot as it is an issue with its interpretation. 
+    Simply because we observe a relationship between two variables in a scatter plot, it does not mean
+     that changes in one variable are responsible for changes in the other. This gives rise to the common 
+     phrase in statistics that correlation does not imply causation. It is possible that the observed relationship
+      is driven by some third variable that
+     affects both of the plotted variables, that the causal link is reversed, or that the pattern is simply coincidental.</p>
+<p>For example, it would be wrong to look at city statistics for the amount of green space they have and the number 
+    of crimes committed and conclude that one causes the other, this can ignore the fact that larger cities with more
+     people will tend to have more of both, and that they are simply correlated through that and other factors. If a
+      causal link needs to be established, then further analysis to control or account
+     for other potential variables effects needs to be performed, in order to rule out other possible explanations.</p>
+    
+<br>
+<h3>matplotlib.pyplot.scatter() in Python</h3>
+<p>The matplotlib.pyplot.scatter() plots serve as a visual tool to explore and analyze the relationships between variables, utilizing dots to depict the connection between them. The matplotlib library provides the scatter() method, specifically designed for creating scatter plots. These plots are 
+    instrumental in illustrating the interdependencies among variables and how alterations in one variable can impact another</p>
+<p>Syntax: matplotlib.pyplot.scatter(x_axis_data, y_axis_data, s=None, c=None, marker=None, cmap=None, vmin=None, vmax=None, alpha=None, linewidths=None, edgecolors=None)</p>
+<p>Parameters:
+<br><br>
+    x_axis_data: An array containing data for the x-axis.matplotlib<br>
+    s: Marker size, which can be a scalar or an array of size equal to the size of x or y.<br>
+    c: Color of the sequence of colors for markers.<br>
+    marker: Marker style.<br>
+    cmap: Colormap name.<br>
+    linewidths: Width of the marker border.<br>
+    edgecolor: Marker border color.<br>
+    alpha: Blending value, ranging between 0 (transparent) and 1 (opaque).</p>
+<p>Except for x_axis_data and y_axis_data, all other parameters are optional, with their default values set to None. The scatter plot examples below demonstrate the versatility of the scatter() method by showcasing various combinations of these optional parameters.</p>
+<p>
+    By importing matpltlib. plot () we created a scatter plot. It defines x and y coordinates, then plots the points in blue and displays the plot.</p>
+    {% load static %} <img src="{% static "dj_app/media/scatter6.png" %}" alt="home" />
+    {% load static %} <img src="{% static "dj_app/media/scatter7.png" %}" alt="home" />
+
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

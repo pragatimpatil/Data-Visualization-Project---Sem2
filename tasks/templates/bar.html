@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>BAR PLOT</h2>
+<h3>Introduction </h3>  
+<p>
+    A barplot (or barchart) is one of the most common types of graphic. It shows the relationship between a numeric and a categoric variable. Each entity of the categoric 
+    variable is represented as a bar. The size of the bar represents its numeric value.
+
+    Here is an example showing the quantity of weapons exported by the top 20 largest exporters in 2017.
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/bar1.png" %}" alt="home" align="center" />
+
+
+<h3>Uses</h3>
+<p>
+    A barplot shows the relationship between a numeric and a categoric variable. In the previous graphic, each country is a level of the categoric variable, and the quantity 
+    of weapon sold is the numeric variable. An ordered barplot is a very good choice here since it displays both the ranking of countries and their specific value.
+
+
+    A barplot can also display values for several levels of grouping. In the following graphic, the number of given baby name is provided by name and per year. With this kind of 
+    information it is possible to build a grouped barplot.
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/bar2.png" %}" alt="home" align="center" />   
+
+<p>
+    Instead of puting the bars one beside each other it is possible to stack them, resulting in a stacked barplot.
+
+</p>
+{% load static %} <img src="{% static "dj_app/media/bar3.png" %}" alt="home" align="center" />   
+    
+<h3>Variations</h3>
+<p>
+    Barplot is sometimes described as a boring way to visualize information, despite its incredible efficiency. There are a few variations that allows to create more eye-catching 
+    figures without loosing any of the barplot accuracy. My favorite variation is the lollipop plot that replaces the bars with a segment and a dot. It results in a less cluttered 
+    figure that is often more attractive.
+</p>
+{% load static %} <img src="{% static "dj_app/media/bar4.png" %}" alt="home" align="center" />   
+
+<p>
+    Circular barplot can also be considered if you have many groups. The group comparison is less accurate, thus this option must be selected if there is an obvious pattern to show 
+    in the data.
+</p>
+{% load static %} <img src="{% static "dj_app/media/bar5.png" %}" alt="home" align="center" />   
+<br>
+
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

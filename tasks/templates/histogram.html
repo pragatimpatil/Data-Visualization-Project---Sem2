@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>HISTOGRAM</h2>
+<h3>What is a histogram? </h3>  
+<p>A histogram is a chart that plots the distribution of a numeric variable’s values as a series of bars. Each bar typically covers a range of numeric values called a bin or class; 
+    a bar’s height indicates the frequency of data points with a value within the corresponding bin.
+</p>
+{% load static %} <img src="{% static "dj_app/media/hist1.png" %}" alt="home" align="center" />
+
+<p>The histogram above shows a frequency distribution for time to response for tickets sent into a fictional 
+    support system. Each bar covers one hour of time, and the height indicates the number of tickets in each time range. 
+    We can see that the largest frequency of responses were in the 2-3 hour range, with a longer tail to the right than to the left. There’s also a smaller hill whose peak (mode) at 13-14 hour range. If we only looked at numeric statistics like mean and standard deviation, 
+    we might miss the fact that there were these two peaks that contributed to the overall statistics.</p>
+
+<h3>WWhen you should use a histogram</h3>
+
+<p>
+    Histograms are good for showing general distributional features of dataset variables. 
+    You can see roughly where the peaks of the distribution are, whether the distribution is skewed or symmetric,
+     and if there are any outliers.</p>
+    {% load static %} <img src="{% static "dj_app/media/hist2.png" %}" alt="home" align="center" />
+<p>In order to use a histogram, we simply require a variable that takes continuous numeric values. 
+    This means that the differences between values are consistent regardless of their absolute values. For example, even if the score on a test might take only integer values between 0 and 100, a same-sized gap has the same meaning regardless of where we are on the scale: 
+    the difference between 60 and 65 is the same 5-point size as the difference between 90 to 95.</p>
+<p>Information about the number of bins and their boundaries for tallying up the data points is not inherent to the data itself. Instead, setting up the bins is a separate decision that we have to make when constructing a histogram. The
+     way that we specify the bins will have a major effect on how the histogram can be interpreted, as will be seen below.</p>
+<p>When a value is on a bin boundary, it will consistently be assigned to the bin on its right or its left (or into the end bins if it is on the end points). Which side is chosen depends on the visualization tool; some tools have the option to override their default preference.
+     In this article, it will be assumed that values on a bin boundary will be assigned to the bin to the right.</p>
+
+
+<h3>Example of data structure</h3><br>
+{% load static %} <img src="{% static "dj_app/media/hist3.png" %}" alt="home" align="center" />
+<p>One way that visualization tools can work with data to be visualized as a histogram is from a summarized form like above. Here, the first column indicates the bin boundaries, and the second the number of observations in each bin. Alternatively, certain tools can just work with the 
+    original, unaggregated data column, then apply specified binning parameters to the data when the histogram is created.</p>
+    {% load static %} <img src="{% static "dj_app/media/hist4.png" %}" alt="home" align="center" />
+
+<h3>Best practices for using a histogram</h3><br>
+<h3>Use a zero-valued baseline</h3>
+<p>An important aspect of histograms is that they must be plotted with a zero-valued baseline. Since the frequency of data in each bin is implied by the height of each bar,
+     changing the baseline or introducing a gap in the scale will skew the perception of the distribution of data.</p>
+     {% load static %} <img src="{% static "dj_app/media/hist5.png" %}" alt="home" align="center" />
+
+<h3>Choose an appropirate number of bins</h3><br>
+<p>While tools that can generate histograms usually have some default algorithms for selecting bin boundaries, you will likely want to play around with the binning parameters to choose something that is representative of your data. Wikipedia has an extensive section on rules of thumb for choosing an appropriate number of bins and their sizes, but ultimately, it’s worth using domain knowledge
+     along with a fair amount of playing around with different options to know what will work best for your purposes.</p>
+<p>Choice of bin size has an inverse relationship with the number of bins. The larger the bin sizes, the fewer bins there will be to cover the whole range of data. With a smaller bin size, the more bins there will need to be. It is worth taking some time to test out different bin sizes to see how the distribution looks in each one, then choose the plot that represents the data best. If you have too many bins, then the data distribution will look rough, and it will be difficult to discern the signal from the noise. On the other hand,
+     with too few bins, the histogram will lack the details needed to discern any useful pattern from the data.</p>
+{% load static %} <img src="{% static "dj_app/media/hist6.png" %}" alt="home" align="center" />
+
+<h3>Choose interpretable bin boundaries</h3>
+<p>Tick marks and labels typically should fall on the bin boundaries to best inform where the limits of each bar lies. Labels don’t need to be set for every bar, but having them between every few bars helps the reader keep track of value. In addition, 
+    it is helpful if the labels are values with only a small number of significant figures to make them easy to read.</p>
+<p>This suggests that bins of size 1, 2, 2.5, 4, or 5 (which divide 5, 10, and 20 evenly) or their powers of ten are good bin sizes to start off with as a rule of thumb. This also means that bins of size 3, 7, or 9 will likely be more difficult to read, 
+    and shouldn’t be used unless the context makes sense for them.</p>
+    {% load static %} <img src="{% static "dj_app/media/hist7.png" %}" alt="home" align="center" />
+
+<p>A small word of caution: make sure you consider the types of values that your variable of interest takes. In the case of a fractional bin size like 2.5, this can be a problem if your variable only takes integer values. A bin running from 0 to 2.5 has opportunity to collect three different values (0, 1, 2) but the following bin from 2.5 to 5 can only collect two different values (3, 4 – 5 will fall into the following bin). This means
+     that your histogram can look unnaturally “bumpy” simply due to the number of values that each bin could possibly take.</p>
+     {% load static %} <img src="{% static "dj_app/media/hist8.png" %}" alt="home" align="center" />
+
+<h3>Common histogram options</h3><br>
+<h3>Absolute frequency vs. relative frequency</h3>
+<p>Depending on the goals of your visualization, you may want to change the units on the vertical axis of the plot as 
+    being in terms of absolute frequency or relative frequency. Absolute frequency is just the natural count of occurrences in each bin, while relative frequency is the proportion of occurrences in each bin. 
+    The choice of axis units will depend on what kinds of comparisons you want to emphasize about the data distribution.</p>
+    {% load static %} <img src="{% static "dj_app/media/hist9.png" %}" alt="home" align="center" />
+
+<h3>Displaying unknown or missing data</h3>
+<p>This is actually not a particularly common option, but it’s worth considering when it comes down to customizing 
+    your plots. If a data row is missing a value for the variable of interest, it will often be skipped over in the
+     tally for each bin. If showing the amount of missing or unknown values is important, then you could combine the
+      histogram with an additional bar that depicts the frequency of these unknowns. When plotting this bar, it is a good idea to put it on a parallel axis from the main histogram 
+    and in a different, neutral color so that points collected in that bar are not confused with having a numeric value.</p>
+    {% load static %} <img src="{% static "dj_app/media/hist10.png" %}" alt="home" align="center" />
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

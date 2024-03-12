@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>HEATMAP</h2>
+<h3>Introduction </h3>  
+<p>A heatmap (aka heat map) depicts values for a main variable of interest across two axis variables as a grid of colored squares. The axis variables are divided into ranges like a bar chart or histogram, 
+    and each cell’s color indicates the value of the main variable in the corresponding cell range.</p>
+
+{% load static %} <img src="{% static "dj_app/media/heat1.png" %}" alt="home" align="center" />
+
+<p>
+    The example heatmap above depicts the daily precipitation distribution, grouped by month, 
+    and recorded over eleven years in Seattle, Washington. Each cell reports a numeric count, like 
+    in a standard data table, but the count is accompanied by a color, with larger counts associated 
+    with darker colorings. From the heat map, we can see from the darkest colorings in the left-most 
+    column that most days had no precipitation across the entire year. The pattern in cell colors across 
+    months also shows that 
+    rain is more common in the winter from November to March, and least common in the summer months of July and August.</p>
+
+<h3>When you should use a heatmap</h3>
+<p>Heatmaps are used to show relationships between two variables, one plotted on each axis. By observing how cell colors 
+    change across each axis, you can observe if there are any patterns in value for one or both variables.</p>
+<p>The variables plotted on each axis can be of any type, whether they take on categorical labels or numeric values. In the latter case, the numeric value must be binned like in a histogram 
+    in order to form the grid cells where colors associated with the main variable of interest will be plotted.</p>
+<p>Cell colorings can correspond to all manner of metrics, like a frequency count of points in each bin, or summary statistics like mean or median for a third variable. One way of thinking of the construction of a heatmap is as a table or matrix, with color encoding on top of the cells. In certain applications, it is also 
+    possible for cells to be colored based on non-numeric values (e.g. general qualitative levels of low, medium, high).</p>
+    
+<h3>Example of data structure</h3>
+<br>
+{% load static %} <img src="{% static "dj_app/media/heat2.png" %}" alt="home" />
+<br>
+<p>Different visualization applications can have different ways of accepting data for plotting as a heatmap. In one major form, data can be supplied in the same way it would be naturally displayed as a table. The first column will hold values for one axis of the heatmap, while the names of the remaining columns
+     will correspond with bins for the remaining axis. Values in those columns will be encoded into the heatmap itself.</p>
+<p>The other common form for heatmap data sets it up in a three-column format. Each cell in the heatmap is associated with one row in the data table. 
+    The first two columns specify the ‘coordinates’ of the heat map cell, while the third column indicates the cell’s value.</p>
+<br>    {% load static %} <img src="{% static "dj_app/media/heat3.png" %}" alt="home" />    
+
+<br>
+<h3>Best practices for using a heatmap</h3>
+<h3>1. Choose an appropriate color palette</h3>
+<p>
+    Color is a core component of this chart type, so it’s worth making sure that you choose an appropriate color palette to match the data. Most frequently, there will be a sequential color ramp between value and color, where lighter colors correspond to smaller values and darker colors to 
+    larger values, or vice versa. However, a diverging color palette may be used when values have a meaningful 
+    zero point.</p>
+    {% load static %} <img src="{% static "dj_app/media/heat4.png" %}" alt="home" />  
+
+<br>
+<h3>2. Include a legend</h3>
+<p>As an associated note, it is generally required for a heatmap to include a legend for
+     how colors map to numeric values. Since color on its own has no inherent association with value, a key is vital for viewers to grasp the values in a heatmap. An exception for including a legend can come
+     when the absolute association of value to color is not important, only the relative patterns of data plotted.</p>
+     {% load static %} <img src="{% static "dj_app/media/heat5.png" %}" alt="home" /> 
+<br>
+<h3>3. Show values in cells</h3>
+<p>There is a lack of precision for mapping color to value, especially compared to other encodings like position or length. 
+    Where possible, it is a good idea to add cell value annotations to the heatmap as a double encoding of value.</p>
+
+<br>
+<h3>4. Sort levels by similarity or value</h3>
+<p>When one or both axis variables in a plot are categorical in nature, it can be worth 
+    considering changing the order in which those axis variable levels are plotted. If the
+     categories do not have an inherent ordering, we might want to choose an order that best 
+     helps the reader grasp patterns in the data. 
+    A common option is to sort categories by their average cell value from largest to smallest.</p>
+    {% load static %} <img src="{% static "dj_app/media/heat6.png" %}" alt="home" /> 
+    <br>
+<h3>5. Select Useful Tickmarks</h3>
+<p>For numeric axis variables, choices can be made in how bins are set up and how they are 
+    indicated in the chart. If there are few bins, it is fine to keep tick marks on each bin
+     like for a categorical axis variable. However, when there are a lot of bins, a better option
+      is to plot tick marks between sets of bins to avoid overcrowding. The number of bins that you should use and how 
+    large they are will depend on the nature of the data, so it can be a good idea to experiment with different settings.</p>
+    {% load static %} <img src="{% static "dj_app/media/heat7.png" %}" alt="home" /> 
+    <br><br>
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

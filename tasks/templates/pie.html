@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>PIE CHART</h2>
+<h3>Introduction </h3>  
+<p>A pie chart shows how a total amount is divided between levels of a 
+    categorical variable as a circle divided into radial slices. Each categorical 
+    value corresponds with a single slice of the circle, and the size of each slice 
+    (both in area and arc length) indicates what proportion of the whole each category level takes.
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/pie1.png" %}" alt="home" align="center" />
+
+<p>
+    The pie chart above depicts the distribution of votes for a fictional election for a small city. 
+    We can see that Reyes, represented by the first blue slice, has just less than half of the votes. Chu (yellow)
+     is in second, with about a third of the votes, while Williams (purple) is last, with about a fifth of the votes. 
+     The annotations in the upper right give us a
+     more precise judgment of the proportions, but the pie chart tells the overarching story of where the votes fell.</p>
+
+<h3>When you should use a pie chart</h3>
+<p>Pie charts have a fairly narrow use-case that is encapsulated particularly well by its definition.
+     In order to use a pie chart, you must have some kind of whole amount that is divided into a number 
+     of distinct parts. Your primary objective in a pie chart should be to compare each group’s contribution
+      to the whole, as opposed to comparing groups to each other. If the above points are not satisfied, 
+    the pie chart is not appropriate, and a different plot type should be used instead.</p>
+<p>The values that comprise a whole and the categories that divide the whole generally come in
+     two major varieties. First of all, is when the ‘whole’ represents a total count. Examples of this 
+     include votes in an election divided by candidate, 
+    or number of transactions divided by user type (e.g. guest, new user, existing user).</p>
+<p>A second type of ‘whole’ is when the total is a sum over an actual data variable. For example, we might be 
+    interested not in the number of transactions, but the monetary total from all transactions. Dividing this 
+    total by an
+     attribute like user type, age bracket, or location might provide insights as to where the business 
+     is most successful.</p>
+{% load static %} <img src="{% static "dj_app/media/pie2.png" %}" alt="home" align="center" />   
+
+<h3>Example of data structure</h3>
+<br>
+{% load static %} <img src="{% static "dj_app/media/pie3.png" %}" alt="home" />
+<br>
+<p>Data for a pie chart can be summarized in a table like the above, where the first column 
+    indicates a category, and the second the proportion, frequency, or amount of that category. 
+    Usually, the total does not need to be specified separately unless it is to be listed somewhere 
+    else on a generated figure. Alternatively, some tools can just work with the unaggregated data as 
+    in the below table, 
+    essentially performing the aggregation into the table above at time of pie chart creation.</p>
+
+<br>    {% load static %} <img src="{% static "dj_app/media/pie4.png" %}" alt="home" />    
+
+<br>
+<h3>Best practices for using a Pie Chart</h3>
+<h3>1. Include annotations</h3>
+<p>
+    It is actually very difficult to discern exact proportions from pie charts,
+    outside of small fractions like 1/2 (50%), 1/3 (33%), and 1/4 (25%). Furthermore,
+     if the slice values are meant to depict amounts rather than proportions, pie charts
+      typically lack the tick marks to allow for estimation of
+    values directly from slice sizes. It is for these reasons that annotations are a standard inclusion for pie charts.</p>
+    
+
+<br>
+<h3>2. Consider the order of slices</h3>
+<p>A good order for slices can make it much easier for a reader to understand what the 
+    plot is saying. A typical ordering goes from the largest slice to the smallest slice, 
+    very useful when there are categories with very similar values. 
+    However, if the category levels have an inherent ordering, then plotting slices in that order is usually better.</p>
+<p>As for choosing a start point, it’s a good idea to plot slices from a cardinally-oriented direction. 
+    Visualization tools will usually start from the right or from the top. While starting from the right
+     has a mathematical basis regarding conventions on measuring angles, starting from the top feels more intuitive, 
+    since it matches how we read from top to bottom, and how we think about progression of time on a clock or watch face.</p>
+     {% load static %} <img src="{% static "dj_app/media/pie5.png" %}" alt="home" /> 
+<br>
+<h3>3. Limit the number of pie slices</h3>
+<p>Pie charts with a large number of slices can be difficult to read. It can be difficult 
+    to see the smallest slices, and it can be difficult to choose enough colors to make all 
+    of the slices distinct. Recommendations vary, but if you have more than about five categories,
+     you might want to think about using a different chart type. 
+    As another option, you might consider lumping small slices into a single ‘other’ slice, colored in a neutral gray.</p>
+    {% load static %} <img src="{% static "dj_app/media/pie6.png" %}" alt="home" /> 
+
+<br>
+<h3>4. Avoid distorting effects</h3>
+<p>Reading a pie chart accurately requires that the slices’ areas, arc lengths, and angles all point 
+    to an accurate representation of the data. While avoiding 3-d effects is a good idea for any plot,
+     it is especially important for pie charts. Squashing or
+     stretching the circle or adding unnecessary depth can easily distort how large each slice compares to the whole.</p>
+<p>Another distortion can come from the ‘exploded’ pie chart, where slices are pulled out from the center 
+    for emphasis. This emphasis comes with a cost, 
+    where the gaps can make it more difficult to actually gauge the part-to-whole comparison.</p>
+    {% load static %} <img src="{% static "dj_app/media/pie7.png" %}" alt="home" /> 
+    <br>
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

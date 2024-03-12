@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>ISOLATION FOREST</h2>
+<h3>Introduction </h3>  
+<p>Isolation Forest is a technique for identifying outliers in data that was first introduced by Fei Tony Liu and Zhi-Hua Zhou in 2008. The approach employs binary trees to detect anomalies,
+     resulting in a linear time complexity and low memory usage that is well-suited for processing large datasets.
+</p>
+<p>Since its introduction, Isolation Forest has gained popularity as a fast and reliable
+     algorithm for anomaly detection in various fields such as cybersecurity, finance, and medical research.</p>
+
+<h3>Isolation Forests Anamoly Detection</h3>
+<p>Isolation Forests(IF), similar to Random Forests, are build based on decision trees. And 
+    since there are no pre-defined labels here, it is an unsupervised model.</p>
+
+<p>IsolationForests were built based on the fact that anomalies are the data points that are “few and different”.
+<br>
+    In an Isolation Forest, randomly sub-sampled data is processed in a tree structure based on randomly selected features. The samples that travel deeper into the tree are less likely to be anomalies as they required more cuts to isolate them. Similarly,
+     the samples which end up in shorter branches indicate anomalies as it was easier for the tree to separate them from other observations.</p>
+<h3>How do Isolation Forests work?</h3>
+<p>As mentioned earlier, Isolation Forests outlier detection are nothing but an ensemble of binary decision trees. And each 
+    tree in an Isolation Forest
+     is called an Isolation Tree(iTree). The algorithm starts with the training of the data, by generating Isolation Trees.</p>
+<p>Let us look at the complete algorithm step by step:
+<br><br>
+    1. When given a dataset, a random sub-sample of the data is selected and assigned to a binary tree.
+    <br>2. Branching of the tree starts by selecting a random feature (from the set of all N features) first. And then branching is done on a random threshold ( any value in the range of minimum and maximum values of the selected feature).
+    <br>3. If the value of a data point is less than the selected threshold, it goes to the left branch else to the right. And thus a node is split into left and right branches.
+    <br>4. This process from step 2 is continued recursively till each data point is completely isolated or till max depth(if defined) is reached.
+    <br>5. The above steps are repeated to construct random binary trees.</p>
+    <p>After an ensemble of iTrees(Isolation Forest) is created, model training is complete. During scoring, 
+        a data point is traversed through all the trees which were trained earlier. Now, an ‘anomaly score’ is assigned 
+        to each of the data points based on the depth of the tree required to arrive at that point. This score is an aggregation of
+         the depth obtained from each of the iTrees. An anomaly score of -1 is assigned
+         to anomalies and 1 to normal points based on the contamination(percentage of anomalies present in the data) parameter provided.</p>
+         {% load static %} <img src="{% static "dj_app/media/ift1.png" %}" alt="home" align="center" />
+
+<h3>Limitations of Isolation Forest</h3>
+<p>Isolation Forests are computationally efficient and
+    have been proven to be very effective in Anomaly detection. Despite its advantages, there are a few limitations as mentioned below.
+    <br><br>
+    The final anomaly score depends on the contamination parameter, provided while training the model. This implies that we should have an idea of what percentage of the data is anomalous beforehand to get a better prediction.
+    <br>Also, the model suffers from a bias due to the way the branching takes place.
+    <br>Well, to understand the second point, we can take a look at the below anomaly score map.</p>
+    {% load static %} <img src="{% static "dj_app/media/ift2.png" %}" alt="home" align="center" />
+<p>Here, in the score map on the right, we can see that the points in the center got the lowest anomaly score, which is
+     expected. However, we can see four rectangular regions around the circle with lower
+     anomaly scores as well. So, when a new data point in any of these rectangular regions is scored, it might not be detected as an anomaly.</p>
+     {% load static %} <img src="{% static "dj_app/media/ift3.png" %}" alt="home" align="center" />
+     <p>Similarly, in the above figure, we can see that the model resulted in two additional blobs
+        (on the top right and bottom left ) which never even existed in the data.</p>
+    <p>Whenever a node in an iTree is split based on a threshold value, the data is split 
+        into left and right branches resulting in horizontal and vertical branch cuts. And these branch cuts result in this model bias.</p>
+        {% load static %} <img src="{% static "dj_app/media/ift4.png" %}" alt="home" align="center" />
+        <p>The above figure shows branch cuts after combining outputs of all the trees of an Isolation Forest. Here we can see how the 
+            rectangular regions with lower anomaly 
+            scores were formed in the left figure. And also the right figure shows the formation of two additional blobs due to more branch cuts.</p>
+<p>To overcome this limit, an extension to Isolation Forests called ‘Extended Isolation Forests’ was introduced by Sahand Hariri. In EIF, horizontal and vertical cuts were replaced with cuts with random slopes.</p>
+{% load static %} <img src="{% static "dj_app/media/ift5.png" %}" alt="home" align="center" />
+
+
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>

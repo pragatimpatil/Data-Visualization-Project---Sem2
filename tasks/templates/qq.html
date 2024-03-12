@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: lightcyan;
+          color: #333;
+          margin: 20px;
+          
+        }
+        h2 {
+          
+          text-align: center;
+          background-color: lightseagreen;
+          color: #fff;
+          padding: 20px;
+        }
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          
+          color: midnightblue;
+          
+        }
+        p {
+          font-size: 18px;
+          font-weight: normal;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        p.t {
+          font-weight: bold;
+          font-family: 'Calibri', sans-serif;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+        img {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          align: center;
+        }
+        a {
+          color: #28a745;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+
+<body>
+<h2>Q-Q PLOT</h2>
+<h3>Introduction </h3>  
+<p>
+    In statistics, a Q–Q plot (quantile–quantile plot) is a probability plot, a graphical method for comparing two probability distributions by plotting their quantiles against 
+    each other. A point (x, y) on the plot corresponds to one of the quantiles of the second distribution(y-coordinate) plotted against the same quantile of the first 
+    distribution(x-coordinate). This defines a parametric curve where the parameter is the index of the quantile interval. 
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/q-q1.png" %}" alt="home" align="center" />
+
+<p>
+    If the two distributions being compared are similar, the points in the Q–Q plot will approximately lie on the identity line y = x. 
+    If the distributions are linearly related, the points in the Q–Q plot will approximately lie on a line, but not necessarily on line y = x. 
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/q-q2.png" %}" alt="home" align="center" />
+
+<h3>Interpretation</h3>
+<p>
+    The points plotted in a Q–Q plot are always non-decreasing when viewed from left to right. If the two distributions being compared are identical, the Q–Q plot follows the 
+    45° line y = x. If the two distributions agree after linearly transforming the values in one of the distributions, then the Q–Q plot follows some line, but not necessarily the 
+    line y = x. If the general trend of the Q–Q plot is flatter than the line y = x, the distribution plotted on the horizontal axis is more dispersed than the distribution 
+    plotted on the vertical axis. Conversely, if the general trend of the Q–Q plot is steeper than the line y = x, the distribution plotted on the vertical axis is more dispersed 
+    than the distribution plotted on the horizontal axis. Q–Q plots are often arced, or S-shaped, indicating that one of the distributions is more skewed than the other, or that one 
+    of the distributions has heavier tails than the other.
+
+    Although a Q–Q plot is based on quantiles, in a standard Q–Q plot it is not possible to determine which point in the Q–Q plot determines a given quantile. For example, 
+    it is not possible to determine the median of either of the two distributions being compared by inspecting the Q–Q plot. Some Q–Q plots indicate the deciles to make 
+    determinations such as this possible. 
+</p>
+
+{% load static %} <img src="{% static "dj_app/media/q-q3.png" %}" alt="home" align="center" />   
+<h3>Plotting Positions</h3>
+<p>
+    The choice of quantiles from a theoretical distribution can depend upon context and purpose. One choice, given a sample of size n, is k/n for k = 1,. . ., n, as these are the 
+    quantiles that the sampling distribution realizes. The last of these, n/n, corresponds to the 100th percentile – the maximum value of the theoretical distribution, 
+    which is sometimes infinite. Other choices are the use of (k − 0.5) / n, or instead to space the n points such that there is an equal distance between all of them and also 
+    between the two outermost points and the edges of the [ 0 , 1 ] interval, using k/(n + 1).
+
+    Many other choices have been suggested, both formal and heuristic, based on theory or simulations relevant in context. The following subsections discuss some of these. 
+    A narrower question is choosing a maximum (estimation of a population maximum), known as the German tank problem, for which similar "sample maximum, plus a gap" solutions exist, 
+    most simply m + m/n − 1. A more formal application of this uniformization of spacing occurs in maximum spacing estimation of parameters. 
+</p>
+    
+<h4>Expected value of the order statistic for a uniform distribution</h4>
+<p>The k/(n + 1) approach equals that of plotting the points according to the probability that the last of (n + 1) randomly drawn values will not exceed the k-th smallest of 
+    the first n randomly drawn values.</p>
+
+ 
+
+<br>
+<h3>Expected value of the order statistic for a standard normal distribution</h3>
+<p>
+    In using a normal probability plot, the quantiles one uses are the rankits, the quantile of the expected value of the order statistic of a standard normal distribution.
+
+    More generally, Shapiro–Wilk test uses the expected values of the order statistics of the given distribution; the resulting plot and line yields the generalized least squares 
+    estimate for location and scale (from the intercept and slope of the fitted line). Although this is not too important for the normal distribution (the location and scale are 
+    estimated by the mean and standard deviation, respectively), it can be useful for many other distributions.
+
+    However, this requires calculating the expected values of the order statistic, which may be difficult if the distribution is not normal. 
+</p>    
+
+<br>
+<h3>Median of the order statistics</h3>
+<p>
+    Alternatively, one may use estimates of the median of the order statistics, which one can compute based on estimates of the median of the order statistics of a uniform 
+    distribution and the quantile function of the distribution; this was suggested by Filliben (1975).
+
+    This can be easily generated for any distribution for which the quantile function can be computed, but conversely the resulting estimates of location and scale are no 
+    longer precisely the least squares estimates, though these only differ significantly for n small. 
+</p>
+ 
+<br>
+
+
+<p class="t">Back to <a href="/tasks">Home Page</a></p>
+</body>
+</html>
